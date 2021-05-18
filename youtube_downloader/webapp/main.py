@@ -2,13 +2,13 @@ from pytube import YouTube
 
 
 class Download(object):
-    def __init__(self, download_link, file_location):
-        self.download_link = download_link
-        self.file_location = file_location
+    def __init__(self, link):
+        self.link = link
 
     def youtube_video(self):
-        link = input(self.download_link)
-        yt = YouTube(link)
+        yt = YouTube(str(self.link))
         video = yt.streams.first()
-        video.download(self.file_location)
+        video.download('C:/Users/user/Downloads/')
 
+    def thumbnail(self):
+        return YouTube(self.link).thumbnail_url
